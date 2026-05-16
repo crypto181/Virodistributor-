@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIRO GGG – A4 Sticker Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+
+@page { size: A4 portrait; margin: 0mm; }
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+body {
+  width: 21cm;
+  background: #f0f0f0;
+  font-family: 'Oswald', sans-serif;
+}
+
+@media screen {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 170px;
+    gap: 20px;
+    background: #222;
+    width: 100%;
+  }
+}
+
+.a4-page {
+  width: 21cm;
+  height: 29.7cm;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  flex-shrink: 0;
+}
+@media screen { .a4-page { box-shadow: 0 8px 40px rgba(0,0,0,0.6); } }
+@media print  { .a4-page { box-shadow: none; } }
+
+.page-header {
+  background: #1565C0;
+  color: #FFD700;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.5cm;
+  letter-spacing: 0.1cm;
+  text-align: center;
+  padding: 0.12cm 0;
+  border-bottom: 0.07cm solid #FFD700;
+}
+.page-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.3cm;
+  color: #aaa;
+  text-align: center;
+  padding: 0.08cm 0;
+  letter-spacing: 0.05cm;
+  text-transform: uppercase;
+}
+@media print { .page-header, .page-label { display: none !important; } }
+
+.grid-area {
+  padding: 0.38cm 0.5cm;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3cm;
+}
+.sticker-row { display: flex; gap: 0.3cm; flex-wrap: nowrap; }
+.cut-guide { border: none; border-top: 0.035cm dashed #ccc; margin: 0 0.3cm; }
+
+/* ── STICKER BASE ── */
+.sticker {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(140deg, #FFFDE7 0%, #FFFFFF 45%, #E3F2FD 100%);
+  border: 0.07cm solid #1565C0;
+  outline: 0.04cm solid #FFD700;
+  outline-offset: -0.12cm;
+  flex-shrink: 0;
+}
+.sticker::before, .sticker::after {
+  content: '';
+  position: absolute;
+  width: 0.22cm; height: 0.22cm;
+  border-color: #FFD700;
+  border-style: solid;
+  z-index: 10;
+  opacity: 0.75;
+}
+.sticker::before { top:0.07cm; left:0.07cm; border-width:0.045cm 0 0 0.045cm; border-radius:0.04cm 0 0 0; }
+.sticker::after  { bottom:0.07cm; right:0.07cm; border-width:0 0.045cm 0.045cm 0; border-radius:0 0 0.04cm 0; }
+
+.s-header {
+  background: linear-gradient(90deg,#1565C0 0%,#0D47A1 50%,#1565C0 100%);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 0.2cm;
+  flex-shrink: 0;
+  position: relative;
+}
+.s-header::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  background: linear-gradient(90deg,#FFD700,#FF8F00,#FFD700);
+}
+.logo-wrap {
+  border-radius:50%; background:white; border:0.04cm solid #FFD700;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden; flex-shrink:0;
+}
+.logo-wrap svg { display:block; }
+.brand { font-family:'Bebas Neue',sans-serif; color:#FFD700; letter-spacing:0.05cm; line-height:1; }
+.s-body { flex:1; display:flex; align-items:center; gap:0.18cm; }
+.eggs-col { display:flex; flex-direction:column; gap:0.08cm; align-items:center; flex-shrink:0; }
+.egg-r { display:flex; gap:0.07cm; }
+.egg {
+  display:inline-block;
+  background: radial-gradient(ellipse at 35% 30%, #fffde7, #FFD600 55%, #FF8F00 100%);
+  border: 0.03cm solid #E65100;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 0 0.04cm 0.1cm rgba(230,81,0,0.3), inset 0 0.02cm 0.04cm rgba(255,255,255,0.6);
+}
+.info-col { flex:1; display:flex; flex-direction:column; justify-content:center; }
+.tagline { font-family:'Oswald',sans-serif; font-weight:600; color:#E65100; text-transform:uppercase; letter-spacing:0.03cm; line-height:1; }
+.ggg { font-family:'Bebas Neue',sans-serif; color:#1565C0; letter-spacing:0.1cm; line-height:1; }
+.dist { font-family:'Oswald',sans-serif; font-weight:700; color:#C62828; text-transform:uppercase; letter-spacing:0.03cm; line-height:1; }
+.dates-row { display:flex; gap:0.1cm; }
+.dbox {
+  flex:1; background:linear-gradient(135deg,#E3F2FD,#BBDEFB);
+  border:0.04cm solid #1565C0; border-radius:0.1cm;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.dbox-label { font-family:'Oswald',sans-serif; font-weight:700; color:#0D47A1; text-transform:uppercase; letter-spacing:0.02cm; line-height:1.2; text-align:center; }
+.dbox-val { font-family:'Oswald',sans-serif; font-weight:600; color:#1565C0; margin-top:0.03cm; letter-spacing:0.02cm; }
+.dbox-line { background:#1565C0; border-radius:0.05cm; width:85%; }
+.s-footer {
+  background:linear-gradient(90deg,#C62828,#B71C1C,#C62828);
+  display:flex; align-items:center; justify-content:center; gap:0.08cm;
+  flex-shrink:0;
+}
+.contact { font-family:'Oswald',sans-serif; font-weight:700; color:#FFD700; letter-spacing:0.04cm; }
+
+/* ── SIZE LG 15×10cm ── */
+.sticker-lg { width:15cm; height:10cm; border-radius:0.32cm; }
+.sticker-lg .s-header { height:1.65cm; padding:0 0.38cm; }
+.sticker-lg .s-header::after { height:0.17cm; bottom:-0.17cm; }
+.sticker-lg .logo-wrap { width:1.25cm; height:1.25cm; }
+.sticker-lg .logo-wrap svg { width:1.05cm; height:1.05cm; }
+.sticker-lg .brand { font-size:1.05cm; }
+.sticker-lg .s-body { padding:0.45cm 0.42cm 0.25cm; gap:0.35cm; margin-top:0.2cm; }
+.sticker-lg .tagline { font-size:0.27cm; margin-bottom:0.07cm; }
+.sticker-lg .ggg { font-size:1.35cm; }
+.sticker-lg .dist { font-size:0.3cm; margin-top:0.04cm; }
+.sticker-lg .dates-row { margin-top:0.22cm; gap:0.18cm; }
+.sticker-lg .dbox { padding:0.1cm 0.18cm; border-radius:0.14cm; }
+.sticker-lg .dbox-label { font-size:0.25cm; }
+.sticker-lg .dbox-val { font-size:0.26cm; min-height:0.26cm; }
+.sticker-lg .dbox-line { height:0.035cm; margin-top:0.07cm; }
+.sticker-lg .s-footer { height:0.85cm; }
+.sticker-lg .contact { font-size:0.42cm; }
+.sticker-lg .egg-r-big .egg { width:0.62cm; height:0.78cm; }
+.sticker-lg .egg-r-sm  .egg { width:0.42cm; height:0.53cm; }
+
+/* ── SIZE MD 10×6cm ── */
+.sticker-md { width:10cm; height:6cm; border-radius:0.2cm; }
+.sticker-md .s-header { height:1.05cm; padding:0 0.22cm; }
+.sticker-md .s-header::after { height:0.11cm; bottom:-0.11cm; }
+.sticker-md .logo-wrap { width:0.82cm; height:0.82cm; }
+.sticker-md .logo-wrap svg { width:0.68cm; height:0.68cm; }
+.sticker-md .brand { font-size:0.68cm; }
+.sticker-md .s-body { padding:0.28cm 0.28cm 0.18cm; gap:0.22cm; margin-top:0.14cm; }
+.sticker-md .tagline { font-size:0.18cm; margin-bottom:0.04cm; }
+.sticker-md .ggg { font-size:0.88cm; }
+.sticker-md .dist { font-size:0.19cm; margin-top:0.03cm; }
+.sticker-md .dates-row { margin-top:0.13cm; gap:0.1cm; }
+.sticker-md .dbox { padding:0.06cm 0.1cm; border-radius:0.08cm; }
+.sticker-md .dbox-label { font-size:0.16cm; }
+.sticker-md .dbox-val { font-size:0.16cm; min-height:0.16cm; }
+.sticker-md .dbox-line { height:0.022cm; margin-top:0.04cm; }
+.sticker-md .s-footer { height:0.56cm; }
+.sticker-md .contact { font-size:0.28cm; }
+.sticker-md .egg-r-big .egg { width:0.4cm; height:0.5cm; }
+.sticker-md .egg-r-sm  .egg { width:0.27cm; height:0.34cm; }
+
+/* ── SIZE SM 6×4cm ── */
+.sticker-sm { width:6cm; height:4cm; border-radius:0.12cm; }
+.sticker-sm .s-header { height:0.7cm; padding:0 0.13cm; }
+.sticker-sm .s-header::after { height:0.07cm; bottom:-0.07cm; }
+.sticker-sm .logo-wrap { width:0.52cm; height:0.52cm; }
+.sticker-sm .logo-wrap svg { width:0.44cm; height:0.44cm; }
+.sticker-sm .brand { font-size:0.4cm; }
+.sticker-sm .s-body { padding:0.16cm 0.16cm 0.1cm; gap:0.12cm; margin-top:0.09cm; }
+.sticker-sm .tagline { font-size:0.1cm; margin-bottom:0.02cm; }
+.sticker-sm .ggg { font-size:0.54cm; }
+.sticker-sm .dist { font-size:0.12cm; margin-top:0.02cm; }
+.sticker-sm .dates-row { margin-top:0.08cm; gap:0.06cm; }
+.sticker-sm .dbox { padding:0.04cm 0.06cm; border-radius:0.05cm; }
+.sticker-sm .dbox-label { font-size:0.09cm; }
+.sticker-sm .dbox-val { font-size:0.09cm; min-height:0.09cm; }
+.sticker-sm .dbox-line { height:0.014cm; margin-top:0.025cm; }
+.sticker-sm .s-footer { height:0.36cm; }
+.sticker-sm .contact { font-size:0.17cm; }
+.sticker-sm .egg-r-big .egg { width:0.25cm; height:0.31cm; }
+.sticker-sm .egg-r-sm  .egg { width:0.17cm; height:0.21cm; }
+
+/* ── EDIT PANEL ── */
+#edit-panel {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(135deg,#0D47A1,#1565C0);
+  border-top: 3px solid #FFD700;
+  padding: 8px 14px 12px;
+  z-index: 9999;
+  font-family: 'Oswald', sans-serif;
+}
+@media print { #edit-panel { display:none !important; } }
+
+.panel-title {
+  color: #FFD700;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  text-align: center;
+}
+.panel-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center;
+  align-items: flex-end;
+}
+.field-group { display:flex; flex-direction:column; gap:3px; }
+.field-group label { color:#90CAF9; font-size:0.58rem; letter-spacing:1px; text-transform:uppercase; }
+.field-group input {
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,215,0,0.4);
+  border-radius: 6px;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  padding: 5px 8px;
+  outline: none;
+  width: 128px;
+  transition: border-color 0.2s;
+}
+.field-group input.wide { width: 165px; }
+.field-group input:focus { border-color: #FFD700; background: rgba(255,255,255,0.18); }
+.field-group input::placeholder { color: rgba(255,255,255,0.3); }
+
+.btn-print {
+  background: linear-gradient(135deg,#FFD700,#FF8F00);
+  color: #0D47A1;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 22px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  align-self: flex-end;
+  white-space: nowrap;
+}
+.btn-print:active { transform:scale(0.97); }
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE 1 — LARGE 15×10cm (×2) ══ -->
+<div class="a4-page">
+  <div class="page-header">PAGE 1 — LARGE STICKERS (15cm × 10cm) — 2 PER SHEET</div>
+  <div class="grid-area" style="gap:0.5cm; padding:0.5cm;" id="lg-grid"></div>
+  <div class="page-label">✂ Cut along dashed lines | Page 1 of 3 | 15cm × 10cm</div>
+</div>
+
+<!-- ══ PAGE 2 — MEDIUM 10×6cm (×8) ══ -->
+<div class="a4-page">
+  <div class="page-header">PAGE 2 — MEDIUM STICKERS (10cm × 6cm) — 8 PER SHEET</div>
+  <div class="grid-area" style="gap:0.3cm; padding:0.4cm 0.5cm;" id="md-grid"></div>
+  <div class="page-label">✂ Cut along dashed lines | Page 2 of 3 | 10cm × 6cm</div>
+</div>
+
+<!-- ══ PAGE 3 — SMALL 6×4cm (×18) ══ -->
+<div class="a4-page">
+  <div class="page-header">PAGE 3 — SMALL STICKERS (6cm × 4cm) — 18 PER SHEET</div>
+  <div class="grid-area" style="gap:0.26cm; padding:0.36cm 0.52cm;" id="sm-grid"></div>
+  <div class="page-label">✂ Cut along dashed lines | Page 3 of 3 | 6cm × 4cm</div>
+</div>
+
+<!-- ══ EDIT PANEL ══ -->
+<div id="edit-panel">
+  <div class="panel-title">✏️ Edit fields below — all stickers update instantly</div>
+  <div class="panel-grid">
+    <div class="field-group">
+      <label>Company Name</label>
+      <input id="f-company" type="text" value="VIRO GGG" placeholder="VIRO GGG">
+    </div>
+    <div class="field-group">
+      <label>Short / Badge</label>
+      <input id="f-short" type="text" value="GGG" placeholder="GGG">
+    </div>
+    <div class="field-group">
+      <label>Role</label>
+      <input id="f-role" type="text" value="Distributor" placeholder="Distributor">
+    </div>
+    <div class="field-group">
+      <label>Tagline</label>
+      <input id="f-tagline" type="text" value="🥚 Premium Quality Eggs" placeholder="Tagline" class="wide">
+    </div>
+    <div class="field-group">
+      <label>Phone</label>
+      <input id="f-phone" type="text" value="📞 0728 578 254" placeholder="Phone">
+    </div>
+    <div class="field-group">
+      <label>Production Date</label>
+      <input id="f-prod" type="text" value="" placeholder="e.g. 16/05/2026">
+    </div>
+    <div class="field-group">
+      <label>Expiry Date</label>
+      <input id="f-exp" type="text" value="" placeholder="e.g. 30/05/2026">
+    </div>
+    <button class="btn-print" onclick="window.print()">🖨️ PRINT NOW</button>
+  </div>
+</div>
+
+<script>
+/* ── LOGO SVG ── */
+const LOGO = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="50" cy="50" rx="47" ry="47" fill="white" stroke="#1565C0" stroke-width="5"/>
+  <polygon points="12,72 30,72 50,38 70,72 88,72 88,65 72,65 50,28 28,65 12,65" fill="#1565C0"/>
+  <polygon points="28,65 50,28 72,65 65,65 50,40 35,65" fill="white"/>
+  <rect x="38" y="60" width="24" height="7" fill="#1565C0" rx="2"/>
+  <g fill="#E91E8C">
+    <polygon points="55,48 58,20 62,21 59,48"/>
+    <polygon points="59,47 65,20 69,22 63,47"/>
+    <polygon points="63,46 72,22 76,25 67,46"/>
+    <polygon points="67,44 80,26 83,30 70,44"/>
+  </g>
+</svg>`;
+
+/* ── GET DATA FROM INPUTS ── */
+function getData() {
+  return {
+    company:  document.getElementById('f-company').value || 'VIRO GGG',
+    short:    document.getElementById('f-short').value   || 'GGG',
+    role:     document.getElementById('f-role').value    || 'Distributor',
+    tagline:  document.getElementById('f-tagline').value || '🥚 Premium Quality Eggs',
+    phone:    document.getElementById('f-phone').value   || '📞 0728 578 254',
+    prod:     document.getElementById('f-prod').value,
+    exp:      document.getElementById('f-exp').value,
+  };
+}
+
+/* ── STICKER TEMPLATES ── */
+function stickerHTML(size, d) {
+  const extraTag = size === 'lg'
+    ? `<div style="color:#FFD700;font-size:0.32cm;font-family:'Oswald',sans-serif;font-weight:700;text-align:right;">FRESH<br>EGGS</div>`
+    : size === 'md'
+    ? `<div style="color:#FFD700;font-size:0.2cm;font-family:'Oswald',sans-serif;font-weight:700;text-align:right;">FRESH<br>EGGS</div>`
+    : `<div style="color:#FFD700;font-size:0.12cm;font-family:'Oswald',sans-serif;font-weight:700;text-align:right;">FRESH<br>EGGS</div>`;
+
+  const bigEggs = size === 'lg' ? 3 : 2;
+  const smEggs  = size === 'sm' ? 1 : 2;
+  const bigRow  = Array(bigEggs).fill('<div class="egg"></div>').join('');
+  const smRow   = Array(smEggs).fill('<div class="egg"></div>').join('');
+  const tagFS   = size === 'sm' ? 'style="font-size:0.1cm;"' : '';
+
+  return `<div class="sticker sticker-${size}">
+    <div class="s-header">
+      <div class="logo-wrap">${LOGO}</div>
+      <div class="brand s-company">${d.company}</div>
+      ${extraTag}
+    </div>
+    <div class="s-body">
+      <div class="eggs-col">
+        <div class="egg-r egg-r-big">${bigRow}</div>
+        <div class="egg-r egg-r-sm">${smRow}</div>
+      </div>
+      <div class="info-col">
+        <div class="tagline s-tagline" ${tagFS}>${d.tagline}</div>
+        <div class="ggg s-short">${d.short}</div>
+        <div class="dist s-role">${d.role}</div>
+        <div class="dates-row">
+          <div class="dbox">
+            <div class="dbox-label">Prod.<br>Date</div>
+            <div class="dbox-val s-prod">${d.prod}</div>
+            <div class="dbox-line"></div>
+          </div>
+          <div class="dbox">
+            <div class="dbox-label">Exp.<br>Date</div>
+            <div class="dbox-val s-exp">${d.exp}</div>
+            <div class="dbox-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-footer"><span class="contact s-phone">${d.phone}</span></div>
+  </div>`;
+}
+
+/* ── BUILD ALL GRIDS ── */
+function buildAll(d) {
+  // LG: 2 rows of 1
+  const lg = document.getElementById('lg-grid');
+  lg.innerHTML = '';
+  for (let i = 0; i < 2; i++) {
+    const row = document.createElement('div');
+    row.className = 'sticker-row';
+    row.innerHTML = stickerHTML('lg', d);
+    lg.appendChild(row);
+    if (i < 1) { const hr = document.createElement('hr'); hr.className = 'cut-guide'; lg.appendChild(hr); }
+  }
+  // MD: 4 rows of 2
+  const md = document.getElementById('md-grid');
+  md.innerHTML = '';
+  for (let i = 0; i < 4; i++) {
+    const row = document.createElement('div');
+    row.className = 'sticker-row';
+    row.innerHTML = stickerHTML('md', d) + stickerHTML('md', d);
+    md.appendChild(row);
+    if (i < 3) { const hr = document.createElement('hr'); hr.className = 'cut-guide'; md.appendChild(hr); }
+  }
+  // SM: 6 rows of 3
+  const sm = document.getElementById('sm-grid');
+  sm.innerHTML = '';
+  for (let i = 0; i < 6; i++) {
+    const row = document.createElement('div');
+    row.className = 'sticker-row';
+    row.innerHTML = stickerHTML('sm', d) + stickerHTML('sm', d) + stickerHTML('sm', d);
+    sm.appendChild(row);
+    if (i < 5) { const hr = document.createElement('hr'); hr.className = 'cut-guide'; sm.appendChild(hr); }
+  }
+}
+
+/* ── INIT ── */
+buildAll(getData());
+
+/* ── LIVE UPDATE ON INPUT ── */
+['f-company','f-short','f-role','f-tagline','f-phone','f-prod','f-exp'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => buildAll(getData()));
+});
+</script>
+</body>
+</html>
